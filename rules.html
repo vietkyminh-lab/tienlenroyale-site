@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to play — Tiến Lên Royale</title>
+<meta name="description" content="The complete rules of Southern Tiến Lên as played in Tiến Lên Royale: card order, combinations, bombs and chops (chặt), frozen hands (cóng), stuck cards (thúi), instant wins (tới trắng) and every payout.">
+<link rel="canonical" href="https://tienlenroyale.com/rules.html">
+<link rel="alternate" hreflang="vi" href="https://tienlenroyale.com/rules-vi.html">
+<link rel="alternate" hreflang="en" href="https://tienlenroyale.com/rules.html">
+<meta property="og:title" content="How to play Tiến Lên Royale">
+<meta property="og:description" content="The complete house rules — chặt, cóng, thúi, tới trắng — and exactly what each one pays.">
+<meta property="og:image" content="https://tienlenroyale.com/assets/og.jpg">
+<meta name="theme-color" content="#0a0704">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="shell">
+    <a class="site-mark" href="index.html"><span class="pip">♠</span> Tiến Lên Royale</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a class="hide-sm" href="index.html#gallery">Screens</a>
+      <a class="hide-sm" href="index.html#beta">Beta</a>
+      <a class="lang" href="rules-vi.html">Tiếng Việt</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <h1>How to play Tiến Lên Royale</h1>
+  <div class="meta">Southern Tiến Lên (Tiến Lên Miền Nam, "Thirteen") — the exact
+  ruleset the game plays, including every rule that moves chips.</div>
+
+  <p>If you already know Tiến Lên, skip to <a href="#chop">the chop</a> — sections
+  6 to 9 are the house rules that most apps leave out, and they are where the
+  chips really move.</p>
+
+  <nav class="toc" aria-label="Contents">
+    <ol>
+      <li><a href="#deal">The deal and the opening lead</a></li>
+      <li><a href="#order">Card order</a></li>
+      <li><a href="#combos">What you may play</a></li>
+      <li><a href="#turn">Taking your turn</a></li>
+      <li><a href="#bombs">Bombs</a></li>
+      <li><a href="#chop">Chặt — the chop</a></li>
+      <li><a href="#cong">Cóng — the frozen hand</a></li>
+      <li><a href="#thui">Thúi — stuck cards</a></li>
+      <li><a href="#instant">Tới trắng — instant wins</a></li>
+      <li><a href="#payouts">Placement payouts</a></li>
+    </ol>
+  </nav>
+
+  <hr class="rule">
+
+  <!-- 1 -->
+  <h2 id="deal">1 · The deal and the opening lead</h2>
+  <p>One standard 52-card deck, no jokers. At a full table of four, everyone gets
+  <strong>13 cards</strong> and the whole deck is dealt. Tables of two or three
+  players deal the same 13 cards each and the rest of the deck simply stays out of
+  play.</p>
+  <p><strong>The very first hand of a session is led by whoever holds the 3♠</strong>,
+  and their opening play must contain it. At smaller tables the 3♠ may not have been
+  dealt at all — then the opening belongs to the lowest card actually in play, and it
+  must be included the same way.</p>
+  <p>After that, <strong>the winner of the previous hand leads</strong> the next one,
+  and may lead anything.</p>
+
+  <!-- 2 -->
+  <h2 id="order">2 · Card order</h2>
+  <p><strong>3 is the lowest card and 2 is the highest.</strong> The 2 (the "heo" —
+  pig) is not a low card here; it is the most powerful single in the deck, and that
+  is exactly why so many rules are built around punishing you for holding one.</p>
+
+  <div class="table-scroll">
+    <table class="cards-table">
+      <tr>
+        <th>Rank, low to high</th>
+        <td class="seq">3 · 4 · 5 · 6 · 7 · 8 · 9 · 10 · J · Q · K · A · 2</td>
+      </tr>
+      <tr>
+        <th>Suit, low to high</th>
+        <td class="seq">♠ Spades · ♣ Clubs · <span class="red">♦ Diamonds</span> · <span class="red">♥ Hearts</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <p>Suit only breaks a tie between equal ranks. 8♥ beats 8♦ beats 8♣ beats 8♠, and
+  every 9 beats every 8. The lowest card in the deck is 3♠; the highest is 2♥.</p>
+
+  <!-- 3 -->
+  <h2 id="combos">3 · What you may play</h2>
+  <p>Six shapes are legal. Nothing else can be put on the table.</p>
+
+  <div class="table-scroll">
+    <table class="cards-table">
+      <tr><th>Shape</th><th>What it is</th></tr>
+      <tr><td>Single</td><td>One card.</td></tr>
+      <tr><td>Pair</td><td>Two cards of the same rank.</td></tr>
+      <tr><td>Triple</td><td>Three cards of the same rank.</td></tr>
+      <tr><td>Four of a kind</td><td>All four cards of a rank. This is a bomb.</td></tr>
+      <tr><td>Straight</td><td>Three or more cards in consecutive rank, any suits — e.g. 5 6 7. <strong>A straight can never contain a 2.</strong></td></tr>
+      <tr><td>Consecutive pairs</td><td>Three or more pairs in consecutive rank — e.g. 7 7 8 8 9 9. <strong>Never contains a 2.</strong> Three or more of these are bombs.</td></tr>
+    </table>
+  </div>
+
+  <p>Because runs may not include a 2, the highest possible straight ends at an Ace,
+  and a "dragon" straight runs 3 through A.</p>
+
+  <!-- 4 -->
+  <h2 id="turn">4 · Taking your turn</h2>
+  <p>Play moves around the table. When it is your turn you either <strong>beat what
+  is on the table</strong> or <strong>pass</strong>.</p>
+  <ul>
+    <li>To beat a play normally, answer it with <strong>the same shape and the same
+    number of cards</strong>, with a higher top card. A pair of Kings beats a pair of
+    Jacks; a five-card straight is answered only by a higher five-card straight.</li>
+    <li><strong>Passing takes you out of the current trick</strong> — you do not get
+    another turn until the trick ends.</li>
+    <li>The player who leads a trick cannot pass; they have to put something down.</li>
+    <li>When everyone else has passed, the last player to play <strong>wins the
+    trick and leads a new one</strong> with anything they like.</li>
+  </ul>
+  <p>You finish by emptying your hand. The first player out places 1st, and the
+  round continues until only one player still holds cards.</p>
+
+  <!-- 5 -->
+  <h2 id="bombs">5 · Bombs</h2>
+  <p>A bomb is a hand shape strong enough to <strong>break the normal
+  same-shape rule</strong> — but only against 2s and against other bombs. Four bomb
+  strengths exist, weakest first:</p>
+
+  <div class="table-scroll">
+    <table class="cards-table">
+      <tr><th>Bomb</th><th>Strength</th><th>What it can chop</th></tr>
+      <tr><td>Three consecutive pairs</td><td>1 — weakest</td><td>A single 2.</td></tr>
+      <tr><td>Four of a kind</td><td>2</td><td>A single 2, a pair of 2s, and three consecutive pairs.</td></tr>
+      <tr><td>Four consecutive pairs</td><td>3</td><td>Single and paired 2s, and every weaker bomb.</td></tr>
+      <tr><td>Five or more consecutive pairs</td><td>4 — strongest</td><td>Single and paired 2s, and every weaker bomb.</td></tr>
+    </table>
+  </div>
+
+  <div class="callout">
+    <span class="tag">The two limits that matter</span>
+    <p><strong>A bomb never answers an ordinary combination.</strong> You cannot drop
+    four 7s on a pair of Kings or on someone's straight. Bombs exist to punish 2s,
+    not to end tricks.</p>
+    <p><strong>A triple of 2s can never be chopped.</strong> Three 2s put down
+    together are untouchable — nothing in the deck beats them.</p>
+  </div>
+
+  <!-- 6 -->
+  <h2 id="chop">6 · Chặt — the chop</h2>
+  <p>When a bomb beats a 2, that is a <strong>chop</strong>, and it is not just a
+  win of the trick: <strong>the chopped player pays the chopper immediately</strong>,
+  in the middle of the hand, before anybody has won anything.</p>
+
+  <p>The price depends on the colour of the 2 that died, measured in the room's
+  entry:</p>
+
+  <div class="table-scroll">
+    <table class="cards-table">
+      <tr><th>What was chopped</th><th>Price</th><th>In a 1,000 room</th></tr>
+      <tr><td>A black 2 <span style="color:var(--muted)">(2♠ or 2♣)</span></td><td>2 × entry</td><td>2,000</td></tr>
+      <tr><td>A red 2 <span class="red">(2♦ or 2♥)</span></td><td>4 × entry</td><td>4,000</td></tr>
+      <tr><td>A pair of 2s</td><td>Both 2s added together</td><td>4,000 – 8,000</td></tr>
+    </table>
+  </div>
+
+  <p><strong>Counter-chops multiply it.</strong> If someone chops your bomb back
+  with a stronger one, the price doubles; a third chop in the same chain triples it —
+  and it is always the player who was just chopped who pays the one who chopped
+  them. A chop war over one red 2 in a 1,000 room moves 4,000, then 8,000, then
+  12,000 chips, in seconds.</p>
+
+  <p>Chains do not carry between tricks: once everybody passes, the next trick
+  starts clean.</p>
+
+  <!-- 7 -->
+  <h2 id="cong">7 · Cóng — the frozen hand</h2>
+  <p>If the round ends and you <strong>never played a single card</strong>, you are
+  frozen. It is the worst thing that can happen to you at the table:</p>
+  <ul>
+    <li>You pay the 1st-place winner <strong>double the table stake</strong> — this
+    replaces your normal placement loss rather than adding to it.</li>
+    <li>Plus <strong>every 2 still in your hand</strong>, at chop rates: 2 × entry
+    for a black one, 4 × entry for a red one.</li>
+    <li>Plus <strong>one full stake for every bomb</strong> still in your hand.</li>
+  </ul>
+  <p>In a 1,000 room (stake 4,000) that is 8,000 for an empty-handed freeze, 12,000
+  if you were sitting on a bomb, 16,000 if you were sitting on two red 2s.</p>
+  <div class="callout">
+    <span class="tag">The lesson</span>
+    <p>Get at least one card down. A single 3♠ played early is the cheapest insurance
+    in the game.</p>
+  </div>
+
+  <!-- 8 -->
+  <h2 id="thui">8 · Thúi — stuck cards</h2>
+  <p>The moment 1st place empties their hand the round is decided, and whoever is
+  left holding cards is measured for what they are still carrying. <strong>The last
+  player pays the player who finished directly above them</strong> for every
+  dangerous card still in hand:</p>
+  <ul>
+    <li>Each 2 at chop rates — 2 × entry black, 4 × entry red.</li>
+    <li>Each bomb at one full stake.</li>
+  </ul>
+  <p>This is paid <strong>on top of</strong> the normal placement result, not instead
+  of it. A 2 you managed to unload before the end owes nothing — only what is
+  actually in your hand when the round stops counts.</p>
+  <p>Frozen players are exempt from thúi, because their leftover cards were already
+  priced into cóng.</p>
+
+  <!-- 9 -->
+  <h2 id="instant">9 · Tới trắng — instant wins</h2>
+  <p>Some hands win the moment they are dealt, before a single card is played. The
+  table settles and the next one is dealt.</p>
+
+  <div class="table-scroll">
+    <table class="cards-table">
+      <tr><th>Hand</th><th>What it is</th></tr>
+      <tr><td>Four 2s</td><td>All four 2s in one hand.</td></tr>
+      <tr><td>Six pairs</td><td>Any six pairs among your 13 cards.</td></tr>
+      <tr><td>Five consecutive pairs</td><td>Five pairs in a row — e.g. 4 4 5 5 6 6 7 7 8 8.</td></tr>
+      <tr><td>Dragon straight</td><td>One of every rank from 3 to Ace.</td></tr>
+    </table>
+  </div>
+
+  <p><strong>Every other player pays double the table stake</strong> — 8,000 each in
+  a 1,000 room, so a four-handed instant win collects 24,000 chips off the deal.</p>
+  <p>If two players are dealt an instant win at the same time they
+  <strong>split one pot</strong>: each loser pays exactly what they would have paid
+  against a single winner, because a loser did nothing different and should not be
+  charged for someone else's luck. And if every seat wins at once, no chips move at
+  all — chips at a table only ever come from losers.</p>
+
+  <!-- 10 -->
+  <h2 id="payouts">10 · Placement payouts</h2>
+  <p>Every room has an <strong>entry</strong>, and the <strong>stake is four times
+  it</strong> — in the 1,000 Beginner room the stake is 4,000. Placement settles
+  between players; the table never creates or destroys chips.</p>
+
+  <div class="table-scroll">
+    <table class="cards-table">
+      <tr><th>Table</th><th>Who pays whom</th></tr>
+      <tr><td>Four players</td><td>4th pays 1st a full stake · 3rd pays 2nd half a stake.</td></tr>
+      <tr><td>Three players</td><td>3rd pays 1st a full stake · 2nd pays 1st half a stake.</td></tr>
+      <tr><td>Two players</td><td>The loser pays a full stake.</td></tr>
+    </table>
+  </div>
+
+  <p>At four players that is <span class="seq">+4,000 / +2,000 / −2,000 / −4,000</span>
+  in a 1,000 room, before any chop, cóng or thúi money is added on top. Where a frozen
+  player sits on one end of a pairing, that pairing is void and the surviving player
+  simply breaks even — they are not rewarded for someone else's freeze.</p>
+
+  <hr class="rule">
+
+  <div class="callout">
+    <span class="tag">In the game</span>
+    <p>You do not have to memorise any of this. The first game is guided, and each of
+    the four money rules above explains itself the first time it fires at your table —
+    at the moment it costs somebody chips, which is the moment it is worth
+    understanding.</p>
+  </div>
+
+  <p style="margin-top: 2rem;">
+    <a class="btn btn-gold" href="index.html#beta">Join the beta</a>
+  </p>
+
+</div>
+
+<footer class="site-foot">
+  <div class="shell">
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="delete-account.html">Delete your account</a>
+      <a href="mailto:support@tienlenroyale.com">Support</a>
+      <a href="rules-vi.html">Tiếng Việt</a>
+    </div>
+    <div class="foot-legal">
+      © 2026 Royale Dragon Studio LLC · Jacksonville, Florida<br>
+      Chips and gems are play money with no real-world value. No real-money gambling.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

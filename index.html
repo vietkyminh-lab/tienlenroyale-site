@@ -3,26 +3,308 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tiến Lên Royale</title>
+<title>Tiến Lên Royale — the classic Vietnamese card game, dressed for the palace</title>
+<meta name="description" content="Southern Tiến Lên (Thirteen) on your phone with the full house rules — chặt, cóng, thúi, tới trắng — on ornate royal tables. Free to play, Vietnamese and English, no real-money gambling.">
+<link rel="canonical" href="https://tienlenroyale.com/">
+<link rel="alternate" hreflang="vi" href="https://tienlenroyale.com/index-vi.html">
+<link rel="alternate" hreflang="en" href="https://tienlenroyale.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tiến Lên Royale">
+<meta property="og:description" content="The card game every Vietnamese family knows — dressed for the palace.">
+<meta property="og:image" content="https://tienlenroyale.com/assets/og.jpg">
+<meta property="og:url" content="https://tienlenroyale.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0704">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
-  <div class="brand"><span class="crest">♠</span>
-    <div><h1>Tiến Lên Royale</h1>
-    <div class="meta">The classic Vietnamese card game, reimagined as a royal casino.</div></div>
+
+<header class="site-head">
+  <div class="shell">
+    <a class="site-mark" href="index.html"><span class="pip">♠</span> Tiến Lên Royale</a>
+    <nav class="site-nav">
+      <a class="hide-sm" href="#game">The game</a>
+      <a class="hide-sm" href="#gallery">Screens</a>
+      <a href="rules.html">Rules</a>
+      <a class="hide-sm" href="#beta">Beta</a>
+      <a class="lang" href="index-vi.html">Tiếng Việt</a>
+    </nav>
   </div>
-  <p>Tiến Lên Royale brings Southern Tiến Lên (Thirteen) to mobile with the
-  full house-rule experience — chops, frozen hands, stuck-card penalties, and
-  instant wins — on ornate tables with premium decks, in Vietnamese and English.</p>
-  <p><strong>Currently in closed beta on Android.</strong></p>
-  <hr class="rule">
-  <div class="nav">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-    <a href="mailto:tienlenroyal@gmail.com">Contact</a>
+</header>
+
+<main>
+
+  <!-- ── Hero ─────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="shell">
+      <img class="hero-logo" src="assets/logo.webp" width="900" height="778"
+           alt="Tiến Lên Royale — Đỉnh Cao Tiến Lên" fetchpriority="high">
+      <p class="hero-tag">The card game every Vietnamese family knows — dressed for the palace.</p>
+      <p class="hero-sub">Southern Tiến Lên (Thirteen) with the full house-rule
+      experience: chops, counter-chop wars, frozen hands and instant wins — on
+      tables built like a royal hall.</p>
+
+      <div class="cta-row">
+        <a class="btn btn-gold" href="rules.html">
+          <span class="stack"><span>How to play</span><span class="sub">The complete house rules</span></span>
+        </a>
+        <a class="btn btn-ghost" href="#beta">
+          <span class="stack"><span>Join the beta</span><span class="sub">iPhone &amp; Android</span></span>
+        </a>
+      </div>
+
+      <p class="hero-note">
+        <span>Free to play</span><i>·</i><span>No real-money gambling</span><i>·</i><span>Tiếng Việt &amp; English</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ── What it is ───────────────────────────────────────────────── -->
+  <section class="band" id="game">
+    <div class="shell">
+      <div class="sec-head">
+        <span class="eyebrow">The game</span>
+        <h2>Every rule that makes the family table loud</h2>
+        <p>Most Tiến Lên apps quietly drop the rules that hurt. This one keeps them,
+        and pays them out to the chip.</p>
+      </div>
+
+      <div class="grid grid-4">
+        <article class="card">
+          <span class="suit">♠</span>
+          <h3>Learn in one hand</h3>
+          <p>A guided first game teaches the basics in two minutes, and every special
+          rule explains itself the first time it fires — at the moment it costs you,
+          never as a wall of text.</p>
+        </article>
+        <article class="card">
+          <span class="suit">♥</span>
+          <h3>Climb the royal ladder</h3>
+          <p>Start in the Beginner room and rise through the Silver, Gold and VIP
+          halls. Higher stakes, richer rooms, bigger swings.</p>
+        </article>
+        <article class="card">
+          <span class="suit">♦</span>
+          <h3>Play money, real tension</h3>
+          <p>Chips are free and always recoverable — daily rewards, hourly bonuses
+          and the Lucky Spin keep you at the table. Nothing here cashes out.</p>
+        </article>
+        <article class="card">
+          <span class="suit">♣</span>
+          <h3>Royal Clubs</h3>
+          <p>Make a private room, hand out the code, and play only with the people
+          you actually want at your table.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The four house rules ─────────────────────────────────────── -->
+  <section class="band band-alt" id="houserules">
+    <div class="shell">
+      <div class="sec-head">
+        <span class="eyebrow">The house rules</span>
+        <h2>Four ways chips move that have nothing to do with winning</h2>
+        <p>These are the rules Vietnamese players argue about. Here they are settled,
+        instantly, in front of everyone.</p>
+      </div>
+
+      <div class="grid grid-4">
+        <article class="card rule-card">
+          <span class="vn">Chặt</span>
+          <span class="en">The chop</span>
+          <p>A bomb just beat a 2. The chopped player pays the chopper on the spot —
+          more for a red 2 than a black one — and every counter-chop multiplies it.</p>
+        </article>
+        <article class="card rule-card">
+          <span class="vn">Cóng</span>
+          <span class="en">Frozen hand</span>
+          <p>Never play a single card all round and you are frozen: you pay the winner
+          double the stake, plus extra for every 2 and every bomb still in your hand.</p>
+        </article>
+        <article class="card rule-card">
+          <span class="vn">Thúi</span>
+          <span class="en">Stuck cards</span>
+          <p>Still holding 2s or bombs when the round ends is expensive. Shed the
+          dangerous cards early, or pay chop rates for the privilege of keeping them.</p>
+        </article>
+        <article class="card rule-card">
+          <span class="vn">Tới trắng</span>
+          <span class="en">Instant win</span>
+          <p>Some hands win the moment they are dealt — four 2s, six pairs, five
+          consecutive pairs, a dragon straight. Everyone else pays double.</p>
+        </article>
+      </div>
+
+      <p style="text-align:center; margin: 32px 0 0;">
+        <a class="btn btn-ghost" href="rules.html">Read the full rules →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Gallery ──────────────────────────────────────────────────── -->
+  <section class="band" id="gallery">
+    <div class="shell">
+      <div class="sec-head">
+        <span class="eyebrow">The halls</span>
+        <h2>Built like somewhere worth sitting down</h2>
+        <p>Screens from the current beta, shown in Vietnamese.</p>
+      </div>
+
+      <div class="shots">
+        <figure class="shot">
+          <img src="assets/shots/sc1_table_gold.webp" width="1280" height="720" loading="lazy"
+               alt="A four-player hand in progress at a Gold-room table">
+          <figcaption>A Gold-room hand, mid-trick — your fan, their counts, the pile.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/shots/sc3_lobby_silver.webp" width="1280" height="720" loading="lazy"
+               alt="The Silver hall in the lobby carousel">
+          <figcaption>The Silver hall — one room at a time, swiped like a corridor.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/shots/sc5_room_gold.webp" width="1280" height="720" loading="lazy"
+               alt="The Gold hall in the lobby carousel">
+          <figcaption>The Gold hall, and the stake that comes with it.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/shots/sc4_vip_room.webp" width="1280" height="720" loading="lazy"
+               alt="The VIP hall, locked until level 30">
+          <figcaption>The VIP hall — locked until you have earned the seat.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/shots/sc2_royal_club.webp" width="1280" height="720" loading="lazy"
+               alt="The Royal Club room, a private table for friends">
+          <figcaption>Royal Clubs — your own room, your own people.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/shots/sc6_table_skins.webp" width="1280" height="720" loading="lazy"
+               alt="The table skin collection in the shop">
+          <figcaption>Table skins, card backs, avatars — collected with chips you won.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Beta ─────────────────────────────────────────────────────── -->
+  <section class="band band-alt" id="beta">
+    <div class="shell">
+      <div class="sec-head">
+        <span class="eyebrow">Right now</span>
+        <h2>Tiến Lên Royale is in closed beta</h2>
+        <p>The game is playable end to end and being tested on real phones before it
+        reaches the stores. Invites are limited and handed out by the studio.</p>
+      </div>
+
+      <div class="grid grid-2" style="max-width: 760px; margin: 0 auto;">
+        <article class="card">
+          <span class="suit">♥</span>
+          <h3>iPhone &amp; iPad</h3>
+          <p>Testing through Apple TestFlight. Write to us and we will send you the
+          invite link if a seat is free.</p>
+        </article>
+        <article class="card">
+          <span class="suit">♣</span>
+          <h3>Android</h3>
+          <p>Closed testing on Google Play. Same deal — tell us the Google account
+          you use on your phone and we will add you to the list.</p>
+        </article>
+      </div>
+
+      <p style="text-align:center; margin: 32px 0 0;">
+        <a class="btn btn-gold" href="mailto:support@tienlenroyale.com?subject=Beta%20invite%20request">
+          Ask for an invite
+        </a>
+      </p>
+      <p style="text-align:center; color: var(--muted); font-size: .85rem; margin-top: 14px;">
+        support@tienlenroyale.com
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Q&A ──────────────────────────────────────────────────────── -->
+  <section class="band">
+    <div class="shell">
+      <div class="sec-head">
+        <span class="eyebrow">Straight answers</span>
+        <h2>Questions people actually ask</h2>
+      </div>
+
+      <div class="qa">
+        <details>
+          <summary>Is this real gambling?</summary>
+          <p>No. Chips and gems are play money. They have no real-world value, cannot
+          be cashed out, and cannot be transferred between players for value. The game
+          simulates card-table wagering — the way a family game does — and nothing of
+          monetary value can be won.</p>
+        </details>
+        <details>
+          <summary>Does it cost anything?</summary>
+          <p>The game is free to play. Chips are always recoverable through daily
+          rewards, hourly bonuses and the Lucky Spin, so running dry is never the end
+          of the night. Optional chip packs will exist later; nothing is on sale today.</p>
+        </details>
+        <details>
+          <summary>Do I need an account?</summary>
+          <p>No. You can play as a guest forever — sign-in is an offer, never a wall.
+          Linking an Apple or Google account exists so your progress survives a lost
+          phone, and you can delete the account and everything in it at any time.</p>
+        </details>
+        <details>
+          <summary>Which Tiến Lên is this?</summary>
+          <p>Southern Tiến Lên (Tiến Lên Miền Nam, "Thirteen"): 3 is the lowest card,
+          2 is the highest, suits rank ♠ &lt; ♣ &lt; ♦ &lt; ♥, and bombs chop 2s. The
+          full ruleset — including the chop, frozen-hand and stuck-card penalties — is
+          written out on the <a href="rules.html">rules page</a>.</p>
+        </details>
+        <details>
+          <summary>Can I play with my family?</summary>
+          <p>Yes — that is what Royal Clubs are for. Create a private room, choose the
+          stake and how many seats it has, and share the code with the people you want
+          in it.</p>
+        </details>
+        <details>
+          <summary>What languages does it speak?</summary>
+          <p>Vietnamese and English, switchable in Settings. The Vietnamese is the
+          language the game was written in, not a translation of the English.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Closer ───────────────────────────────────────────────────── -->
+  <section class="closer">
+    <div class="shell">
+      <div class="ornament">♠</div>
+      <p class="quote" style="margin-top: 26px;">Chặt đẹp — đền đau.</p>
+      <p class="quote-en">Chop beautifully — pay painfully. See you at the table.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="shell">
+    <div class="foot-links">
+      <a href="rules.html">How to play</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="delete-account.html">Delete your account</a>
+      <a href="mailto:support@tienlenroyale.com">Support</a>
+      <a href="index-vi.html">Tiếng Việt</a>
+    </div>
+    <div class="foot-legal">
+      © 2026 Royale Dragon Studio LLC · Jacksonville, Florida<br>
+      Chips and gems are play money with no real-world value. No real-money gambling.
+    </div>
   </div>
-  <div class="footer">© 2026 Royale Dragon Studio · tienlenroyal@gmail.com</div>
-</div>
+</footer>
+
 </body>
 </html>
