@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join a room — Tiến Lên Royale</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a0704">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Page-local dress for the code card — everything else is the document kit. */
+  .code-card {
+    margin: 1.5rem 0 2rem; padding: 28px 24px; text-align: center;
+    border: 1px solid rgba(214, 168, 62, .45); border-radius: 16px;
+    background: linear-gradient(180deg, rgba(30, 26, 19, .9), rgba(16, 14, 10, .9));
+  }
+  .code-card .room-code {
+    font-family: "Playfair Display", serif; font-size: 2.6rem; font-weight: 700;
+    letter-spacing: .35em; margin-left: .35em; color: #e2ba60;
+  }
+  .code-card .cta-row { justify-content: center; margin-top: 1.4rem; }
+  .copied-note { display: none; margin-top: .8rem; font-size: .85rem; color: #7fd39a; }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="shell">
+    <a class="site-mark" href="index.html"><span class="pip">♠</span> Tiến Lên Royale</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a class="hide-sm" href="rules.html">How to play</a>
+      <a class="lang" id="langLink" href="join-vi.html">Tiếng Việt</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <h1>You're invited to a room</h1>
+  <div class="meta">A friend shared a private Royal Club table with you.</div>
+
+  <div class="code-card" id="codeCard">
+    <div>Room code</div>
+    <div class="room-code" id="roomCode">······</div>
+    <div class="cta-row">
+      <a class="btn btn-gold" id="openBtn" href="#">Open in the app</a>
+      <button class="btn btn-ghost" id="copyBtn" type="button">Copy code</button>
+    </div>
+    <div class="copied-note" id="copiedNote">Code copied!</div>
+  </div>
+
+  <h2>How to join</h2>
+  <ul>
+    <li><strong>Have the game?</strong> Tap <em>Open in the app</em> above — the room
+        code fills itself in. Or open the game, tap <strong>JOIN ROOM</strong> on the
+        home screen, and enter the code.</li>
+    <li><strong>New here?</strong> <a href="index.html">Get Tiến Lên Royale</a> first,
+        then come back to this link — the code above is your seat at the table.</li>
+  </ul>
+
+  <p class="meta" id="noCodeNote" style="display:none">This link is missing its room
+  code. Ask your friend to share the invite again, or type the code they gave you
+  into <strong>JOIN ROOM</strong> in the game.</p>
+</div>
+
+<script>
+  var code = (new URLSearchParams(location.search).get('code') || '').trim().toUpperCase();
+  document.getElementById('langLink').href = 'join-vi.html' + location.search;
+  if (code) {
+    document.getElementById('roomCode').textContent = code;
+    document.getElementById('openBtn').href =
+      'tienlenroyale://join?code=' + encodeURIComponent(code);
+    document.getElementById('copyBtn').addEventListener('click', function () {
+      navigator.clipboard.writeText(code).then(function () {
+        document.getElementById('copiedNote').style.display = 'block';
+      });
+    });
+  } else {
+    document.getElementById('codeCard').style.display = 'none';
+    document.getElementById('noCodeNote').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

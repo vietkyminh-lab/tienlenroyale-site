@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vào phòng — Tiến Lên Royale</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a0704">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+  .code-card {
+    margin: 1.5rem 0 2rem; padding: 28px 24px; text-align: center;
+    border: 1px solid rgba(214, 168, 62, .45); border-radius: 16px;
+    background: linear-gradient(180deg, rgba(30, 26, 19, .9), rgba(16, 14, 10, .9));
+  }
+  .code-card .room-code {
+    font-family: "Playfair Display", serif; font-size: 2.6rem; font-weight: 700;
+    letter-spacing: .35em; margin-left: .35em; color: #e2ba60;
+  }
+  .code-card .cta-row { justify-content: center; margin-top: 1.4rem; }
+  .copied-note { display: none; margin-top: .8rem; font-size: .85rem; color: #7fd39a; }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="shell">
+    <a class="site-mark" href="index-vi.html"><span class="pip">♠</span> Tiến Lên Royale</a>
+    <nav class="site-nav">
+      <a href="index-vi.html">Trang chủ</a>
+      <a class="hide-sm" href="rules-vi.html">Cách chơi</a>
+      <a class="lang" id="langLink" href="join.html">English</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <h1>Bạn được mời vào phòng</h1>
+  <div class="meta">Một người bạn đã chia sẻ bàn Royal Club riêng với bạn.</div>
+
+  <div class="code-card" id="codeCard">
+    <div>Mã phòng</div>
+    <div class="room-code" id="roomCode">······</div>
+    <div class="cta-row">
+      <a class="btn btn-gold" id="openBtn" href="#">Mở trong ứng dụng</a>
+      <button class="btn btn-ghost" id="copyBtn" type="button">Sao chép mã</button>
+    </div>
+    <div class="copied-note" id="copiedNote">Đã sao chép mã!</div>
+  </div>
+
+  <h2>Cách vào phòng</h2>
+  <ul>
+    <li><strong>Đã có game?</strong> Nhấn <em>Mở trong ứng dụng</em> ở trên — mã phòng
+        sẽ tự điền. Hoặc mở game, nhấn <strong>VÀO PHÒNG</strong> ở màn hình chính rồi
+        nhập mã.</li>
+    <li><strong>Chưa có game?</strong> <a href="index-vi.html">Tải Tiến Lên Royale</a>
+        trước, rồi quay lại link này — mã ở trên là chỗ ngồi của bạn.</li>
+  </ul>
+
+  <p class="meta" id="noCodeNote" style="display:none">Link này thiếu mã phòng. Hãy nhờ
+  bạn của bạn chia sẻ lại lời mời, hoặc nhập mã họ đưa vào <strong>VÀO PHÒNG</strong>
+  trong game.</p>
+</div>
+
+<script>
+  var code = (new URLSearchParams(location.search).get('code') || '').trim().toUpperCase();
+  document.getElementById('langLink').href = 'join.html' + location.search;
+  if (code) {
+    document.getElementById('roomCode').textContent = code;
+    document.getElementById('openBtn').href =
+      'tienlenroyale://join?code=' + encodeURIComponent(code);
+    document.getElementById('copyBtn').addEventListener('click', function () {
+      navigator.clipboard.writeText(code).then(function () {
+        document.getElementById('copiedNote').style.display = 'block';
+      });
+    });
+  } else {
+    document.getElementById('codeCard').style.display = 'none';
+    document.getElementById('noCodeNote').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
