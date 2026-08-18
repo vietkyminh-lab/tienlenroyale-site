@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tiến Lên Royale — the classic Vietnamese card game, dressed for the palace</title>
-<meta name="description" content="Southern Tiến Lên (Thirteen) on your phone with the full house rules — chặt, cóng, thúi, tới trắng — on ornate royal tables. Free to play, Vietnamese and English, no real-money gambling.">
-<link rel="canonical" href="https://tienlenroyale.com/">
-<link rel="alternate" hreflang="vi" href="https://tienlenroyale.com/index-vi.html">
+<title>Tiến Lên Royale — Đỉnh cao Tiến Lên miền Nam</title>
+<meta name="description" content="Tiến Lên miền Nam trên điện thoại với đầy đủ luật nhà làm — chặt heo, cóng bài, thúi, tới trắng — trên những bàn chơi dát vàng. Chơi miễn phí, tiếng Việt và tiếng Anh, không cờ bạc ăn tiền.">
+<link rel="canonical" href="https://tienlenroyale.com/index-vi.html">
 <link rel="alternate" hreflang="en" href="https://tienlenroyale.com/">
+<link rel="alternate" hreflang="vi" href="https://tienlenroyale.com/index-vi.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tiến Lên Royale">
-<meta property="og:description" content="The card game every Vietnamese family knows — dressed for the palace.">
+<meta property="og:description" content="Trò chơi bài của mọi gia đình Việt — khoác áo hoàng gia.">
 <meta property="og:image" content="https://tienlenroyale.com/assets/og.jpg">
-<meta property="og:url" content="https://tienlenroyale.com/">
+<meta property="og:url" content="https://tienlenroyale.com/index-vi.html">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0a0704">
 <!-- REVIEW BUILD — unlisted preview; remove noindex when promoted to production -->
@@ -109,18 +109,6 @@
   .atl__skip svg { width: 13px; height: 13px; }
   @media (hover: hover) { .atl__skip:hover { border-color: var(--gold); } }
 
-  /* SCENE 06 sits in the lower third: its clip's midframe is five WHITE cards
-     and a centered caption dies on them — the lower third is dark felt on
-     desktop and mobile alike. Position-only; the cinematic style is untouched. */
-  .atl__scene[data-scene="howto"] { justify-content: flex-end; padding-bottom: 9vh; }
-  @media (max-width: 767px) { .atl__scene[data-scene="howto"] { padding-bottom: 15vh; } }
-
-  /* keyboard focus — visible gold rings on every film control, keyboard-only
-     (:focus-visible), zero visual change for mouse/touch */
-  .atl__cta:focus-visible, .atl__dot:focus-visible, .atl__skip:focus-visible {
-    outline: 2px solid var(--gold); outline-offset: 3px;
-  }
-
   /* the fixed site header leaves while the visitor is inside the film
      (tlr-cinema.js gates body.is-in-film on progress, not isActive) */
   .site-head.over-hero { transition: opacity .4s ease, background .25s ease, border-color .25s ease; }
@@ -142,27 +130,26 @@
 
 <header class="site-head over-hero">
   <div class="shell">
-    <a class="site-mark" href="index.html"><span class="pip">♠</span> Tiến Lên Royale</a>
+    <a class="site-mark" href="index-vi.html"><span class="pip">♠</span> Tiến Lên Royale</a>
     <nav class="site-nav">
-      <a href="rules.html">Rules</a>
-      <a href="#beta">Beta</a>
-      <a class="hide-sm" href="#faq">FAQ</a>
-      <a class="lang" href="film-vi.html">Tiếng Việt</a>
+      <a href="rules-vi.html">Luật chơi</a>
+      <a href="#beta">Bản thử</a>
+      <a class="hide-sm" href="#faq">Hỏi đáp</a>
+      <a class="lang" href="film.html">English</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-  <!-- ── The Royal Film ─────────────────────────────────────────────
-       Seven approved clips of the game's own palace, scrubbed by scroll.
-       Engine: assets/js/tlr-cinema.js (adapted from the Durbin cinema).
-       Falls back to a static hero (reduced motion / slow net / deep links). -->
+  <!-- ── Phim Hoàng Gia ─────────────────────────────────────────────
+       Bảy cảnh phim của chính cung điện trong game, cuộn tới đâu phim
+       chạy tới đó. Engine: assets/js/tlr-cinema.js (dùng chung với bản EN). -->
   <section id="home" class="atl" aria-label="Tiến Lên Royale">
     <div class="atl__pin" id="atlPin">
       <img class="atl__poster" id="atlPoster" src="assets/film/poster.webp"
            srcset="assets/film/poster.960.webp 960w, assets/film/poster.webp 1920w"
-           sizes="100vw" alt="The royal palace card hall of Tiến Lên Royale, the crimson table glowing beneath silk lanterns"
+           sizes="100vw" alt="Sảnh bài hoàng cung của Tiến Lên Royale, bàn nhung đỏ rực sáng dưới lồng đèn lụa"
            fetchpriority="high" decoding="async">
       <canvas class="atl__canvas" id="atlCanvas" aria-hidden="true"></canvas>
       <div class="atl__tint" aria-hidden="true"></div>
@@ -170,230 +157,227 @@
       <div class="atl__bar atl__bar--t" aria-hidden="true"></div>
       <div class="atl__bar atl__bar--b" aria-hidden="true"></div>
 
-      <!-- INTRO (also the static hero — must paint instantly; LCP is the logo
-           and title: transform-only entrances, never opacity-hidden) -->
+      <!-- MỞ MÀN (cũng là hero tĩnh — LCP: logo + tiêu đề chỉ trượt, không ẩn) -->
       <div class="atl__scene atl__scene--intro" data-scene="intro">
         <img class="atl__logo" src="assets/logo.webp" width="900" height="778"
              alt="Tiến Lên Royale — Đỉnh Cao Tiến Lên" fetchpriority="high">
         <h1 class="atl__title">
-          <span class="atl__title-lead">The Tiến Lên you grew up with.</span>
-          <em class="shimmer">Reborn Royal.</em>
+          <span class="atl__title-lead">Tiến Lên bạn lớn lên cùng.</span>
+          <em class="shimmer">Tái Sinh Hoàng Gia.</em>
         </h1>
         <div class="atl__ctarow">
-          <a href="#beta" class="atl__cta atl__cta--gold" data-film-goto="#beta">Join the Beta</a>
-          <button type="button" class="atl__cta atl__cta--ghost" data-film-watch>Enter the Palace</button>
+          <a href="#beta" class="atl__cta atl__cta--gold" data-film-goto="#beta">Tham Gia Beta</a>
+          <button type="button" class="atl__cta atl__cta--ghost" data-film-watch>Bước Vào Cung Điện</button>
         </div>
       </div>
 
-      <!-- 01 · THE GAME -->
+      <!-- 01 · TRÒ CHƠI -->
       <div class="atl__scene atl__scene--s" data-scene="game" aria-hidden="true">
-        <p class="atl__eyebrow">01 &mdash; The Game</p>
-        <h2 class="atl__h">Every Rule the<br>Family Table Plays</h2>
-        <p class="atl__sub">Chặt, cóng, thúi, tới trắng &mdash; kept, and paid out to the chip.</p>
+        <p class="atl__eyebrow">01 &mdash; Trò Chơi</p>
+        <h2 class="atl__h">Đủ Mọi Luật<br>Của Bàn Nhà</h2>
+        <p class="atl__sub">Chặt, cóng, thúi, tới trắng &mdash; giữ lại hết, đền tới từng con chip.</p>
       </div>
 
-      <!-- 02 · THE ROOMS -->
+      <!-- 02 · CÁC SẢNH -->
       <div class="atl__scene atl__scene--s" data-scene="rooms" aria-hidden="true">
-        <p class="atl__eyebrow">02 &mdash; The Rooms</p>
-        <h2 class="atl__h">Climb the<br>Royal Halls</h2>
-        <p class="atl__sub">Beginner to Silver, Gold and VIP &mdash; higher stakes, richer rooms, bigger swings.</p>
+        <p class="atl__eyebrow">02 &mdash; Các Sảnh</p>
+        <h2 class="atl__h">Thăng Hạng<br>Hoàng Gia</h2>
+        <p class="atl__sub">Từ Phòng Tân Thủ lên Bạc, Vàng và sảnh VIP &mdash; cược càng cao, bàn càng sang.</p>
       </div>
 
-      <!-- 03 · THE TABLE -->
+      <!-- 03 · BÀN ĐẤU -->
       <div class="atl__scene atl__scene--s" data-scene="table" aria-hidden="true">
-        <p class="atl__eyebrow">03 &mdash; The Table</p>
-        <h2 class="atl__h">Real Players.<br>Real Tension.</h2>
-        <p class="atl__sub">Four seats, thirteen cards, and the 3&#9824; opens the night.</p>
+        <p class="atl__eyebrow">03 &mdash; Bàn Đấu</p>
+        <h2 class="atl__h">Người Thật.<br>Căng Thật.</h2>
+        <p class="atl__sub">Bốn ghế, mười ba lá, và 3&#9824; mở màn đêm nay.</p>
       </div>
 
-      <!-- 04 · ROYAL CLUB -->
+      <!-- 04 · CLB HOÀNG GIA -->
       <div class="atl__scene atl__scene--s" data-scene="club" aria-hidden="true">
-        <p class="atl__eyebrow">04 &mdash; Royal Club</p>
-        <h2 class="atl__h">Your Own Room.<br>Your Own People.</h2>
-        <p class="atl__sub">Create a private table, share the code, and play only with people you trust.</p>
+        <p class="atl__eyebrow">04 &mdash; CLB Hoàng Gia</p>
+        <h2 class="atl__h">Phòng Riêng.<br>Người Của Bạn.</h2>
+        <p class="atl__sub">Tạo bàn riêng, đưa mã cho bạn bè, chỉ chơi với người bạn tin.</p>
       </div>
 
-      <!-- 05 · CUSTOMIZE -->
+      <!-- 05 · TÙY BIẾN -->
       <div class="atl__scene atl__scene--s" data-scene="customize" aria-hidden="true">
-        <p class="atl__eyebrow">05 &mdash; Customize</p>
-        <h2 class="atl__h">Make the<br>Table Yours</h2>
-        <p class="atl__sub">Table skins, card backs, avatars &mdash; collected with chips you won.</p>
+        <p class="atl__eyebrow">05 &mdash; Tùy Biến</p>
+        <h2 class="atl__h">Bàn Chơi<br>Của Riêng Bạn</h2>
+        <p class="atl__sub">Nền bàn, lưng bài, ảnh đại diện &mdash; sưu tầm bằng chip bạn thắng.</p>
       </div>
 
-      <!-- 06 · HOW TO PLAY -->
+      <!-- 06 · CÁCH CHƠI -->
       <div class="atl__scene atl__scene--s" data-scene="howto" aria-hidden="true">
-        <p class="atl__eyebrow">06 &mdash; How to Play</p>
-        <h2 class="atl__h">Learn in<br>One Hand</h2>
-        <p class="atl__sub">A guided first game teaches the basics in two minutes.</p>
+        <p class="atl__eyebrow">06 &mdash; Cách Chơi</p>
+        <h2 class="atl__h">Học Trong<br>Một Ván</h2>
+        <p class="atl__sub">Ván đầu có hướng dẫn tận tay, chỉ hai phút là biết chơi.</p>
       </div>
 
-      <!-- 07 · JOIN THE BETA (stays up through the landing) -->
+      <!-- 07 · THAM GIA BETA (giữ nguyên tới khi hạ cánh) -->
       <div class="atl__scene atl__scene--s" data-scene="beta" aria-hidden="true">
-        <p class="atl__eyebrow">&mdash;&nbsp; The beta is open to anyone &nbsp;&mdash;</p>
-        <h2 class="atl__h">Take Your Seat</h2>
+        <p class="atl__eyebrow">&mdash;&nbsp; Bản thử mở cho tất cả mọi người &nbsp;&mdash;</p>
+        <h2 class="atl__h">Ghế Đang Chờ Bạn</h2>
         <div class="atl__ctarow">
-          <a href="https://testflight.apple.com/join/AGkJgbtB" class="atl__cta atl__cta--gold">Open TestFlight</a>
-          <a href="#beta" class="atl__cta atl__cta--ghost" data-film-goto="#beta">Android &mdash; two steps</a>
+          <a href="https://testflight.apple.com/join/AGkJgbtB" class="atl__cta atl__cta--gold">Mở TestFlight</a>
+          <a href="#beta" class="atl__cta atl__cta--ghost" data-film-goto="#beta">Android &mdash; hai bước</a>
         </div>
       </div>
 
-      <!-- chrome: scroll cue, rail, skip -->
-      <div class="atl__cue" id="atlCue" aria-hidden="true"><span>Scroll to enter the Royal experience</span><i></i></div>
-      <nav class="atl__rail" id="atlRail" aria-label="Journey progress">
-        <button class="atl__dot" type="button" data-p="0"><span>Arrive</span><i></i></button>
-        <button class="atl__dot" type="button" data-p="0.078"><span>The Game</span><i></i></button>
-        <button class="atl__dot" type="button" data-p="0.167"><span>Rooms</span><i></i></button>
-        <button class="atl__dot" type="button" data-p="0.310"><span>Table</span><i></i></button>
-        <button class="atl__dot" type="button" data-p="0.453"><span>Club</span><i></i></button>
-        <button class="atl__dot" type="button" data-p="0.595"><span>Customize</span><i></i></button>
-        <button class="atl__dot" type="button" data-p="0.738"><span>How to Play</span><i></i></button>
-        <button class="atl__dot" type="button" data-p="0.90"><span>Join</span><i></i></button>
+      <!-- điều khiển: gợi ý cuộn, thanh tiến trình, bỏ qua -->
+      <div class="atl__cue" id="atlCue" aria-hidden="true"><span>Cuộn để bước vào trải nghiệm hoàng gia</span><i></i></div>
+      <nav class="atl__rail" id="atlRail" aria-label="Tiến trình hành trình">
+        <button class="atl__dot" type="button" data-p="0"><span>Mở màn</span><i></i></button>
+        <button class="atl__dot" type="button" data-p="0.078"><span>Trò chơi</span><i></i></button>
+        <button class="atl__dot" type="button" data-p="0.167"><span>Các sảnh</span><i></i></button>
+        <button class="atl__dot" type="button" data-p="0.310"><span>Bàn đấu</span><i></i></button>
+        <button class="atl__dot" type="button" data-p="0.453"><span>CLB</span><i></i></button>
+        <button class="atl__dot" type="button" data-p="0.595"><span>Tùy biến</span><i></i></button>
+        <button class="atl__dot" type="button" data-p="0.738"><span>Cách chơi</span><i></i></button>
+        <button class="atl__dot" type="button" data-p="0.90"><span>Vào bàn</span><i></i></button>
       </nav>
-      <button class="atl__skip" type="button" id="atlSkip" data-atl-skip>Skip film
+      <button class="atl__skip" type="button" id="atlSkip" data-atl-skip>Bỏ qua phim
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 5l7 7-7 7M4 12h16"/></svg>
       </button>
     </div>
   </section>
 
-  <!-- ── Beta ─────────────────────────────────────────────────────── -->
+  <!-- ── Bản thử ──────────────────────────────────────────────────── -->
   <section class="band band-alt" id="beta">
     <div class="shell">
       <div class="sec-head">
-        <span class="eyebrow">Take your seat</span>
-        <h2>Join the Beta</h2>
-        <p>The game is playable end to end and being tested on real phones before it
-        reaches the stores. No invite, no waiting list — just join.</p>
+        <span class="eyebrow">Vào bàn thôi</span>
+        <h2>Tham Gia Beta</h2>
+        <p>Game đã chơi được trọn vẹn và đang được thử trên điện thoại thật trước khi
+        lên chợ ứng dụng. Không cần lời mời, không phải chờ danh sách.</p>
       </div>
 
       <div class="grid grid-2" style="max-width: 800px; margin: 0 auto;">
         <article class="card">
           <span class="suit">♥</span>
-          <h3>iPhone &amp; iPad — one step</h3>
-          <p>Open the TestFlight link on your iPhone, install Apple's TestFlight app if
-          you don't have it, and tap Install. That's it.</p>
+          <h3>iPhone &amp; iPad — một bước</h3>
+          <p>Mở link TestFlight trên iPhone, cài ứng dụng TestFlight của Apple nếu chưa
+          có, rồi bấm Install. Xong.</p>
           <p style="margin-top:16px;">
-            <a class="btn btn-gold" href="https://testflight.apple.com/join/AGkJgbtB">Open TestFlight link</a>
+            <a class="btn btn-gold" href="https://testflight.apple.com/join/AGkJgbtB">Mở link TestFlight</a>
           </p>
         </article>
         <article class="card">
           <span class="suit">♣</span>
-          <h3>Android — two steps</h3>
-          <p>Google only lets a test like this run through a tester group, so there's
-          one extra hop:</p>
-          <p><strong>1.</strong> <a href="https://groups.google.com/g/tienlenroyale-testers">Join the
-          tester group</a> with the Google account your phone uses.<br>
-          <strong>2.</strong> Open the <a href="https://play.google.com/apps/testing/com.tienlenroyale.game">Play
-          opt-in link</a> and install.</p>
-          <p style="color: var(--muted); font-size: .88rem;">Step 2 only works once you're
-          in the group, and it's the same Google account both times.</p>
+          <h3>Android — hai bước</h3>
+          <p>Google bắt bản thử kiểu này phải chạy qua một nhóm người thử, nên có thêm
+          một bước:</p>
+          <p><strong>1.</strong> <a href="https://groups.google.com/g/tienlenroyale-testers">Vào
+          nhóm người thử</a> bằng đúng tài khoản Google trên máy bạn.<br>
+          <strong>2.</strong> Mở <a href="https://play.google.com/apps/testing/com.tienlenroyale.game">link
+          đăng ký trên Play</a> rồi cài.</p>
+          <p style="color: var(--muted); font-size: .88rem;">Bước 2 chỉ chạy khi bạn đã ở
+          trong nhóm, và phải cùng một tài khoản Google ở cả hai bước.</p>
         </article>
       </div>
 
       <p style="text-align:center; color: var(--muted); font-size: .85rem; margin-top: 26px;">
-        Stuck on either step? <a href="mailto:support@tienlenroyale.com">support@tienlenroyale.com</a>
+        Kẹt ở bước nào? <a href="mailto:support@tienlenroyale.com">support@tienlenroyale.com</a>
       </p>
     </div>
   </section>
 
-  <!-- ── The four house rules ─────────────────────────────────────── -->
+  <!-- ── Bốn luật nhà làm ─────────────────────────────────────────── -->
   <section class="band" id="houserules">
     <div class="shell">
       <div class="sec-head">
-        <span class="eyebrow">The house rules</span>
-        <h2>Four ways chips move that have nothing to do with winning</h2>
-        <p>These are the rules Vietnamese players argue about. Here they are settled,
-        instantly, in front of everyone.</p>
+        <span class="eyebrow">Luật nhà làm</span>
+        <h2>Bốn cách chip đổi chủ mà không cần về nhất</h2>
+        <p>Đây là những luật người Việt hay cãi nhau nhất. Ở đây chúng được xử ngay,
+        trước mặt cả bàn.</p>
       </div>
 
       <div class="grid grid-4">
         <article class="card rule-card">
           <span class="vn">Chặt</span>
-          <span class="en">The chop</span>
-          <p>A bomb just beat a 2. The chopped player pays the chopper on the spot —
-          more for a red 2 than a black one — and every counter-chop multiplies it.</p>
+          <span class="en">Chặt heo</span>
+          <p>Bom vừa chặt heo. Người bị chặt đền ngay cho người chặt — heo đỏ đắt gấp
+          đôi heo đen — và mỗi lần chặt chồng thì tiền lại nhân lên.</p>
         </article>
         <article class="card rule-card">
           <span class="vn">Cóng</span>
-          <span class="en">Frozen hand</span>
-          <p>Never play a single card all round and you are frozen: you pay the winner
-          double the stake, plus extra for every 2 and every bomb still in your hand.</p>
+          <span class="en">Cóng bài</span>
+          <p>Cả ván không đánh lá nào là bị cóng: đền người về nhất gấp đôi mức cược,
+          cộng thêm tiền cho mỗi con heo và mỗi quả bom còn trên tay.</p>
         </article>
         <article class="card rule-card">
           <span class="vn">Thúi</span>
-          <span class="en">Stuck cards</span>
-          <p>Still holding 2s or bombs when the round ends is expensive. Shed the
-          dangerous cards early, or pay chop rates for the privilege of keeping them.</p>
+          <span class="en">Thúi heo</span>
+          <p>Cuối ván còn ôm heo hay bom là thúi. Xả bài nguy hiểm sớm, không thì đền
+          đúng giá chặt cho cái thú giữ bài.</p>
         </article>
         <article class="card rule-card">
           <span class="vn">Tới trắng</span>
-          <span class="en">Instant win</span>
-          <p>Some hands win the moment they are dealt — four 2s, six pairs, five
-          consecutive pairs, a dragon straight. Everyone else pays double.</p>
+          <span class="en">Thắng trắng</span>
+          <p>Có những bài chia ra là thắng liền — tứ quý heo, sáu đôi, năm đôi thông,
+          hay sảnh rồng. Mọi người còn lại đền gấp đôi.</p>
         </article>
       </div>
 
       <p style="text-align:center; margin: 32px 0 0;">
-        <a class="btn btn-ghost" href="rules.html">Read the full rules →</a>
+        <a class="btn btn-ghost" href="rules-vi.html">Xem luật đầy đủ →</a>
       </p>
     </div>
   </section>
 
-  <!-- ── Q&A ──────────────────────────────────────────────────────── -->
+  <!-- ── Hỏi đáp ──────────────────────────────────────────────────── -->
   <section class="band band-alt" id="faq">
     <div class="shell">
       <div class="sec-head">
-        <span class="eyebrow">Straight answers</span>
-        <h2>Questions people actually ask</h2>
+        <span class="eyebrow">Nói thẳng</span>
+        <h2>Những câu người ta hay hỏi</h2>
       </div>
 
       <div class="qa">
         <details>
-          <summary>Is this real gambling?</summary>
-          <p>No. Chips and gems are play money. They have no real-world value, cannot
-          be cashed out, and cannot be transferred between players for value. The game
-          simulates card-table wagering — the way a family game does — and nothing of
-          monetary value can be won.</p>
+          <summary>Đây có phải cờ bạc ăn tiền không?</summary>
+          <p>Không. Chip và ngọc là tiền ảo. Chúng không có giá trị thật, không đổi ra
+          tiền được, và không chuyển cho người chơi khác để lấy giá trị. Game mô phỏng
+          cách đặt cược ở bàn bài gia đình, và không có gì giá trị thật để thắng.</p>
         </details>
         <details>
-          <summary>Does it cost anything?</summary>
-          <p>The game is free to play. Chips are always recoverable through daily
-          rewards, hourly bonuses and the Lucky Spin, so running dry is never the end
-          of the night. Optional chip packs will exist later; nothing is on sale today.</p>
+          <summary>Chơi có tốn tiền không?</summary>
+          <p>Game miễn phí. Chip luôn kiếm lại được bằng thưởng ngày, quà giờ và Vòng
+          Quay May Mắn, nên hết chip không bao giờ là hết cuộc vui. Sau này sẽ có gói
+          chip tuỳ chọn; hiện tại chưa bán gì cả.</p>
         </details>
         <details>
-          <summary>Do I need an account?</summary>
-          <p>No. You can play as a guest forever — sign-in is an offer, never a wall.
-          Linking an Apple or Google account exists so your progress survives a lost
-          phone, and you can delete the account and everything in it at any time.</p>
+          <summary>Có bắt buộc tạo tài khoản không?</summary>
+          <p>Không. Bạn chơi tư cách khách mãi mãi cũng được — đăng nhập là một lựa
+          chọn, không phải bức tường. Liên kết tài khoản Apple hay Google chỉ để giữ
+          tiến trình khi mất máy, và bạn có thể xoá tài khoản cùng toàn bộ dữ liệu bất
+          cứ lúc nào.</p>
         </details>
         <details>
-          <summary>Which Tiến Lên is this?</summary>
-          <p>Southern Tiến Lên (Tiến Lên Miền Nam, "Thirteen"): 3 is the lowest card,
-          2 is the highest, suits rank ♠ &lt; ♣ &lt; ♦ &lt; ♥, and bombs chop 2s. The
-          full ruleset — including the chop, frozen-hand and stuck-card penalties — is
-          written out on the <a href="rules.html">rules page</a>.</p>
+          <summary>Đây là Tiến Lên kiểu nào?</summary>
+          <p>Tiến Lên miền Nam: 3 nhỏ nhất, 2 (heo) lớn nhất, chất xếp ♠ &lt; ♣ &lt;
+          ♦ &lt; ♥, và bom chặt heo. Toàn bộ luật — kể cả chặt, cóng và thúi — được
+          viết rõ ở <a href="rules-vi.html">trang luật chơi</a>.</p>
         </details>
         <details>
-          <summary>Can I play with my family?</summary>
-          <p>Yes — that is what Royal Clubs are for. Create a private room, choose the
-          stake and how many seats it has, and share the code with the people you want
-          in it.</p>
+          <summary>Chơi với gia đình được không?</summary>
+          <p>Được — CLB Hoàng Gia sinh ra để làm việc đó. Tạo phòng riêng, chọn mức
+          cược và số ghế, rồi gửi mã cho những người bạn muốn.</p>
         </details>
         <details>
-          <summary>What languages does it speak?</summary>
-          <p>Vietnamese and English, switchable in Settings. The Vietnamese is the
-          language the game was written in, not a translation of the English.</p>
+          <summary>Game có những ngôn ngữ nào?</summary>
+          <p>Tiếng Việt và tiếng Anh, đổi trong phần Cài Đặt. Tiếng Việt là ngôn ngữ
+          gốc của game, không phải bản dịch từ tiếng Anh.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- ── Closer ───────────────────────────────────────────────────── -->
+  <!-- ── Kết ──────────────────────────────────────────────────────── -->
   <section class="closer">
     <div class="shell">
       <div class="ornament">♠</div>
       <p class="quote" style="margin-top: 26px;">Chặt đẹp — đền đau.</p>
-      <p class="quote-en">Chop beautifully — pay painfully. See you at the table.</p>
+      <p class="quote-en">Hẹn gặp ở bàn đấu.</p>
     </div>
   </section>
 
@@ -402,16 +386,16 @@
 <footer class="site-foot">
   <div class="shell">
     <div class="foot-links">
-      <a href="rules.html">How to play</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
-      <a href="delete-account.html">Delete your account</a>
-      <a href="mailto:support@tienlenroyale.com">Support</a>
-      <a href="index-vi.html">Tiếng Việt</a>
+      <a href="rules-vi.html">Cách chơi</a>
+      <a href="privacy-vi.html">Chính sách bảo mật</a>
+      <a href="terms.html">Điều khoản dịch vụ</a>
+      <a href="delete-account-vi.html">Xoá tài khoản</a>
+      <a href="mailto:support@tienlenroyale.com">Hỗ trợ</a>
+      <a href="index.html">English</a>
     </div>
     <div class="foot-legal">
       © 2026 Royale Dragon Studio LLC · Jacksonville, Florida<br>
-      Chips and gems are play money with no real-world value. No real-money gambling.
+      Chip và ngọc là tiền ảo, không có giá trị thật. Không cờ bạc ăn tiền.
     </div>
   </div>
 </footer>
