@@ -20,7 +20,121 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
+<script>history.scrollRestoration = "manual";</script>
+<link rel="preload" as="image" href="assets/film/poster.webp" imagesrcset="assets/film/poster.960.webp 960w, assets/film/poster.webp 1920w" imagesizes="100vw">
 <link rel="stylesheet" href="style.css">
+<style>
+  /* ── THE ROYAL FILM ── styles for the cinematic hero (section.atl).
+     Class names match the proven Durbin engine contract; the skin is TLR's
+     gold-on-dark language. */
+
+  /* Lenis smooth-scroll contract — without this the page's own
+     scroll-behavior:smooth re-smooths every Lenis frame and they fight */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  .lenis.lenis-stopped { overflow: hidden; }
+
+  .atl { position: relative; background: #0a0704; }
+  .atl__pin { position: relative; height: 100svh; overflow: hidden; }
+  .atl__poster, .atl__canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .atl__poster { object-fit: cover; }
+  .atl__canvas { display: block; }
+  .atl__tint { position: absolute; inset: 0; pointer-events: none; background:
+    radial-gradient(58% 46% at 50% 46%, rgba(10,7,4,.30) 0%, rgba(10,7,4,.14) 55%, rgba(10,7,4,0) 100%),
+    radial-gradient(130% 100% at 50% 32%, rgba(10,7,4,.10) 0%, rgba(10,7,4,.16) 55%, rgba(10,7,4,.52) 100%),
+    linear-gradient(180deg, rgba(10,7,4,.28) 0%, rgba(10,7,4,0) 22%, rgba(10,7,4,0) 62%, rgba(10,7,4,.46) 100%); }
+  .atl__grain { position: absolute; inset: 0; pointer-events: none; opacity: .05; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E"); }
+  .atl__bar { position: absolute; left: 0; right: 0; height: 0; background: #0a0704; pointer-events: none; z-index: 4; }
+  .atl__bar--t { top: 0; } .atl__bar--b { bottom: 0; }
+
+  /* ---- scenes ---- */
+  .atl__scene { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: calc(64px + 3vh) 1.5rem 10vh; pointer-events: none; }
+  .atl__scene > * { pointer-events: auto; }
+  .atl__scene--s { opacity: 0; visibility: hidden; }
+  .atl__eyebrow { font-size: .68rem; font-weight: 600; letter-spacing: .34em; text-transform: uppercase; color: var(--gold-deep); text-shadow: 0 2px 12px rgba(0,0,0,.55); }
+  .atl__logo { width: min(220px, 46vw); height: auto; filter: drop-shadow(0 14px 34px rgba(0,0,0,.8)); }
+  .atl__title { font-family: var(--display); font-weight: 600; color: var(--cream-hi); margin-top: 1rem; text-shadow: 0 4px 26px rgba(0,0,0,.6); }
+  .atl__title-lead { display: block; font-weight: 500; font-size: clamp(.95rem, 2.4vw, 1.3rem); line-height: 1.25; letter-spacing: .22em; text-indent: .22em; text-transform: uppercase; color: rgba(247,240,224,.92); }
+  .atl__title em, .atl__h { font-style: normal; font-weight: 700; font-size: clamp(2.4rem, 7vw, 4.6rem); line-height: 1.08; display: block; margin-top: .35rem; }
+  .atl__title em.shimmer { background: linear-gradient(105deg, var(--gold) 0%, var(--gold) 40%, #fff3cf 50%, var(--gold) 60%, var(--gold) 100%); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 3px 14px rgba(0,0,0,.65)); }
+  @media (prefers-reduced-motion: no-preference) {
+    .atl__title em.shimmer { animation: atlSweep 7s ease-in-out 1.4s infinite; }
+  }
+  @keyframes atlSweep { 0%, 52% { background-position: 120% 0; } 78%, 100% { background-position: -70% 0; } }
+
+  /* intro entrance — logo + title are the LCP: transform-only, never hidden */
+  @keyframes atlSettle { from { transform: translateY(26px); } to { transform: translateY(0); } }
+  @keyframes atlFadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  .atl__scene--intro .atl__logo { animation: atlSettle 1s cubic-bezier(.22,.8,.3,1) both; }
+  .atl__scene--intro .atl__title { animation: atlSettle 1s cubic-bezier(.22,.8,.3,1) .08s both; }
+  .atl__scene--intro .atl__ctarow { opacity: 0; animation: atlFadeUp .8s ease .6s forwards; }
+  @media (prefers-reduced-motion: reduce) {
+    .atl__scene--intro .atl__logo, .atl__scene--intro .atl__title { animation: none; }
+    .atl__scene--intro .atl__ctarow { animation: none; opacity: 1; }
+  }
+
+  .atl__h { font-family: var(--display); color: var(--cream-hi); margin: 1rem 0 0; text-shadow: 0 4px 26px rgba(0,0,0,.6); }
+  .atl__sub { font-size: clamp(.86rem, 2vw, 1.06rem); color: var(--cream); margin-top: 1.1rem; max-width: 520px; line-height: 1.7; text-shadow: 0 2px 14px rgba(0,0,0,.55); }
+
+  .atl__ctarow { display: flex; flex-wrap: wrap; gap: .9rem; justify-content: center; align-items: center; margin-top: clamp(1.3rem, 4vw, 2.1rem); }
+  .atl__cta { display: inline-flex; align-items: center; gap: .5rem; padding: 1rem 1.7rem; font-family: var(--body); font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; border-radius: 999px; cursor: pointer; transition: transform .18s ease, box-shadow .2s ease, border-color .25s ease, color .25s ease; }
+  .atl__cta:active { transform: translateY(1px); }
+  .atl__cta--gold { background: linear-gradient(180deg, #f6d074 0%, #d09b30 100%); color: #241a0c; border: 1px solid transparent; box-shadow: 0 10px 30px rgba(214,168,62,.35); }
+  .atl__cta--gold:hover { color: #1a1208; box-shadow: 0 14px 38px rgba(214,168,62,.5); transform: translateY(-2px); }
+  .atl__cta--ghost { background: rgba(10,7,4,.32); color: var(--cream-hi); border: 1px solid rgba(214,168,62,.5); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); }
+  .atl__cta--ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* scroll cue */
+  .atl__cue { position: absolute; left: 50%; bottom: 3.2vh; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: .55rem; z-index: 6; pointer-events: none; }
+  .atl__cue span { font-size: .58rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: rgba(236,226,205,.8); text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+  .atl__cue i { width: 1px; height: 44px; background: linear-gradient(to bottom, rgba(214,168,62,.9), rgba(214,168,62,0)); overflow: hidden; position: relative; }
+  .atl__cue i::after { content: ''; position: absolute; left: 0; top: -50%; width: 100%; height: 50%; background: #fff3cf; animation: atlCue 2.2s ease-in-out infinite; }
+  @keyframes atlCue { 0% { top: -50%; } 60%, 100% { top: 110%; } }
+  @media (prefers-reduced-motion: reduce) { .atl__cue i::after { animation: none; } }
+
+  /* progress rail */
+  .atl__rail { position: absolute; right: clamp(.9rem, 2.5vw, 2.2rem); top: 50%; transform: translateY(-50%); z-index: 6; display: flex; flex-direction: column; gap: .95rem; opacity: 0; visibility: hidden; }
+  .atl__dot { display: flex; align-items: center; gap: .6rem; flex-direction: row-reverse; background: none; border: 0; padding: 0; cursor: pointer; }
+  .atl__dot i { width: 7px; height: 7px; border-radius: 50%; background: rgba(236,226,205,.4); box-shadow: 0 0 6px rgba(0,0,0,.4); transition: background .3s ease, transform .3s ease; }
+  .atl__dot span { font-family: var(--body); font-size: .56rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: rgba(236,226,205,.7); text-shadow: 0 1px 8px rgba(0,0,0,.6); opacity: 0; transform: translateX(6px); transition: opacity .3s ease, transform .3s ease; }
+  .atl__dot.is-on i { background: var(--gold); transform: scale(1.5); }
+  .atl__dot.is-on span, .atl__rail:hover .atl__dot span { opacity: 1; transform: none; }
+
+  /* skip */
+  .atl__skip { position: absolute; right: clamp(.9rem, 2.5vw, 2.2rem); bottom: 3vh; z-index: 6; display: inline-flex; align-items: center; gap: .45rem; background: rgba(10,7,4,.38); border: 1px solid rgba(214,168,62,.4); border-radius: 999px; padding: .55rem 1.05rem; font-size: .6rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--cream-hi); cursor: pointer; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); opacity: 0; visibility: hidden; transition: border-color .25s ease; font-family: var(--body); }
+  .atl__skip svg { width: 13px; height: 13px; }
+  @media (hover: hover) { .atl__skip:hover { border-color: var(--gold); } }
+
+  /* SCENE 06 sits in the lower third: its clip's midframe is five WHITE cards
+     and a centered caption dies on them — the lower third is dark felt on
+     desktop and mobile alike. Position-only; the cinematic style is untouched. */
+  .atl__scene[data-scene="howto"] { justify-content: flex-end; padding-bottom: 9vh; }
+  @media (max-width: 767px) { .atl__scene[data-scene="howto"] { padding-bottom: 15vh; } }
+
+  /* keyboard focus — visible gold rings on every film control, keyboard-only
+     (:focus-visible), zero visual change for mouse/touch */
+  .atl__cta:focus-visible, .atl__dot:focus-visible, .atl__skip:focus-visible {
+    outline: 2px solid var(--gold); outline-offset: 3px;
+  }
+
+  /* the fixed site header leaves while the visitor is inside the film
+     (tlr-cinema.js gates body.is-in-film on progress, not isActive) */
+  .site-head.over-hero { transition: opacity .4s ease, background .25s ease, border-color .25s ease; }
+  body.is-in-film .site-head.over-hero { opacity: 0; pointer-events: none; }
+
+  @media (max-width: 767px) {
+    .atl__rail .atl__dot span { display: none; }
+    .atl__scene { padding-bottom: 13vh; }
+    .atl__logo { width: min(180px, 44vw); }
+    .atl__scene[data-scene="beta"] .atl__eyebrow { letter-spacing: .18em; font-size: .6rem; }
+  }
+
+  /* ---- static mode: elegant single-viewport hero, no journey ---- */
+  .atl--static .atl__pin { min-height: 540px; }
+  .atl--static .atl__canvas, .atl--static .atl__bar, .atl--static .atl__rail, .atl--static .atl__skip, .atl--static .atl__scene--s, .atl--static .atl__cue { display: none; }
+</style>
 </head>
 <body>
 
@@ -28,10 +142,9 @@
   <div class="shell">
     <a class="site-mark" href="index.html"><span class="pip">♠</span> Tiến Lên Royale</a>
     <nav class="site-nav">
-      <a class="hide-sm" href="#game">The game</a>
-      <a class="hide-sm" href="#gallery">Screens</a>
       <a href="rules.html">Rules</a>
-      <a class="hide-sm" href="#beta">Beta</a>
+      <a href="#beta">Beta</a>
+      <a class="hide-sm" href="#faq">FAQ</a>
       <a class="lang" href="index-vi.html">Tiếng Việt</a>
     </nav>
   </div>
@@ -39,158 +152,149 @@
 
 <main>
 
-  <!-- ── Hero ─────────────────────────────────────────────────────── -->
-  <section class="hero">
-    <div class="hero-art" aria-hidden="true"></div>
-    <div class="hero-suits" aria-hidden="true">
-      <span>♠</span><span>♥</span><span>♦</span><span>♣</span><span>♠</span><span>♦</span><span>♣</span>
-    </div>
-    <div class="shell">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <img class="hero-logo" src="assets/logo.webp" width="900" height="778"
-               alt="Tiến Lên Royale — Đỉnh Cao Tiến Lên" fetchpriority="high">
-          <p class="hero-eyebrow"><i>♠</i> The Southern Tiến Lên <i>♠</i></p>
-          <h1 class="hero-h1">The Tiến Lên you grew up with.
-            <em>Rebuilt like a royal casino.</em></h1>
-          <div class="hero-orn" aria-hidden="true">♦</div>
-          <p class="hero-sub">Real players. Real tension. Real friendships.
-          Play the closed beta on iPhone, iPad, and Android.</p>
+  <!-- ── The Royal Film ─────────────────────────────────────────────
+       Seven approved clips of the game's own palace, scrubbed by scroll.
+       Engine: assets/js/tlr-cinema.js (adapted from the Durbin cinema).
+       Falls back to a static hero (reduced motion / slow net / deep links). -->
+  <section id="home" class="atl" aria-label="Tiến Lên Royale">
+    <div class="atl__pin" id="atlPin">
+      <img class="atl__poster" id="atlPoster" src="assets/film/poster.webp"
+           srcset="assets/film/poster.960.webp 960w, assets/film/poster.webp 1920w"
+           sizes="100vw" alt="The royal palace card hall of Tiến Lên Royale, the crimson table glowing beneath silk lanterns"
+           fetchpriority="high" decoding="async">
+      <canvas class="atl__canvas" id="atlCanvas" aria-hidden="true"></canvas>
+      <div class="atl__tint" aria-hidden="true"></div>
+      <div class="atl__grain" aria-hidden="true"></div>
+      <div class="atl__bar atl__bar--t" aria-hidden="true"></div>
+      <div class="atl__bar atl__bar--b" aria-hidden="true"></div>
 
-          <div class="store-row">
-            <a class="store-btn store-ios" href="https://testflight.apple.com/join/AGkJgbtB">
-              <svg viewBox="0 0 40 40" aria-hidden="true">
-                <rect x="1" y="1" width="38" height="38" rx="9" fill="#1b6cf5"/>
-                <path d="M20 9.5 26.5 30.5 20 26.2 13.5 30.5Z" fill="#fff"/>
-                <path d="M20 9.5 20 26.2 13.5 30.5Z" fill="#cfe0ff"/>
-              </svg>
-              <span class="store-txt">
-                <small>Join on</small><strong>TestFlight</strong><em>iPhone &amp; iPad</em>
-              </span>
-            </a>
-            <a class="store-btn store-play" href="#beta">
-              <svg viewBox="0 0 40 40" aria-hidden="true">
-                <path d="M8.6 5.6a2 2 0 0 0-.6 1.4v26a2 2 0 0 0 .6 1.4L22 20.4Z" fill="#34a4f6"/>
-                <path d="m8.6 5.6 16.8 9.6-3.4 5.2Z" fill="#4ddb8a"/>
-                <path d="m8.6 34.4 13.4-14 3.4 5.2Z" fill="#f4544a"/>
-                <path d="m25.4 15.2 5.9 3.3a2 2 0 0 1 0 3.5l-5.9 3.4-3.4-5.2Z" fill="#fdc23e"/>
-              </svg>
-              <span class="store-txt">
-                <small>Join Android beta</small><strong>Google Play</strong><em>Two quick steps</em>
-              </span>
-            </a>
-          </div>
-          <p class="store-note">Open to anyone — no invite needed. iPhone installs straight
-          from TestFlight; Android takes <a href="#beta">one extra step</a>.</p>
-
-          <a class="learn-link" href="rules.html">Learn how to play <span aria-hidden="true">›</span></a>
+      <!-- INTRO (also the static hero — must paint instantly; LCP is the logo
+           and title: transform-only entrances, never opacity-hidden) -->
+      <div class="atl__scene atl__scene--intro" data-scene="intro">
+        <img class="atl__logo" src="assets/logo.webp" width="900" height="778"
+             alt="Tiến Lên Royale — Đỉnh Cao Tiến Lên" fetchpriority="high">
+        <h1 class="atl__title">
+          <span class="atl__title-lead">The Tiến Lên you grew up with.</span>
+          <em class="shimmer">Reborn Royal.</em>
+        </h1>
+        <div class="atl__ctarow">
+          <a href="#beta" class="atl__cta atl__cta--gold" data-film-goto="#beta">Join the Beta</a>
+          <button type="button" class="atl__cta atl__cta--ghost" data-film-watch>Enter the Palace</button>
         </div>
       </div>
 
-      <div class="feature-strip">
-        <div class="feat">
-          <span class="feat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                 stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H11v18H5.5A2.5 2.5 0 0 1 3 18.5Z"/>
-              <path d="M21 5.5A2.5 2.5 0 0 0 18.5 3H13v18h5.5a2.5 2.5 0 0 0 2.5-2.5Z"/>
-            </svg>
-          </span>
-          <div>
-            <h3>Learn in one hand</h3>
-            <p>A guided first game teaches the basics in two minutes.</p>
-          </div>
-        </div>
-        <div class="feat">
-          <span class="feat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                 stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 7.5 7 12l5-7 5 7 4-4.5V18H3Z"/><path d="M3 21h18"/>
-            </svg>
-          </span>
-          <div>
-            <h3>Climb the royal ladder</h3>
-            <p>Start in Beginner and rise through Silver, Gold and VIP.</p>
-          </div>
-        </div>
-        <div class="feat">
-          <span class="feat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                 stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.6"/>
-              <path d="M12 3v3.4M12 17.6V21M3 12h3.4M17.6 12H21"/>
-            </svg>
-          </span>
-          <div>
-            <h3>Play for fun</h3>
-            <p>Chips are free and always recoverable. Daily rewards keep you at the table.</p>
-          </div>
-        </div>
-        <div class="feat">
-          <span class="feat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                 stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3 4 6v6c0 4.6 3.2 7.9 8 9 4.8-1.1 8-4.4 8-9V6Z"/>
-              <path d="M12 8.4c1.9 2.4 3.4 3.4 3.4 4.9A2 2 0 0 1 12 14.7a2 2 0 0 1-3.4-1.4c0-1.5 1.5-2.5 3.4-4.9Z"/>
-            </svg>
-          </span>
-          <div>
-            <h3>Royal Clubs</h3>
-            <p>Make a private room, invite friends, and play only with people you trust.</p>
-          </div>
+      <!-- 01 · THE GAME -->
+      <div class="atl__scene atl__scene--s" data-scene="game" aria-hidden="true">
+        <p class="atl__eyebrow">01 &mdash; The Game</p>
+        <h2 class="atl__h">Every Rule the<br>Family Table Plays</h2>
+        <p class="atl__sub">Chặt, cóng, thúi, tới trắng &mdash; kept, and paid out to the chip.</p>
+      </div>
+
+      <!-- 02 · THE ROOMS -->
+      <div class="atl__scene atl__scene--s" data-scene="rooms" aria-hidden="true">
+        <p class="atl__eyebrow">02 &mdash; The Rooms</p>
+        <h2 class="atl__h">Climb the<br>Royal Halls</h2>
+        <p class="atl__sub">Beginner to Silver, Gold and VIP &mdash; higher stakes, richer rooms, bigger swings.</p>
+      </div>
+
+      <!-- 03 · THE TABLE -->
+      <div class="atl__scene atl__scene--s" data-scene="table" aria-hidden="true">
+        <p class="atl__eyebrow">03 &mdash; The Table</p>
+        <h2 class="atl__h">Real Players.<br>Real Tension.</h2>
+        <p class="atl__sub">Four seats, thirteen cards, and the 3&#9824; opens the night.</p>
+      </div>
+
+      <!-- 04 · ROYAL CLUB -->
+      <div class="atl__scene atl__scene--s" data-scene="club" aria-hidden="true">
+        <p class="atl__eyebrow">04 &mdash; Royal Club</p>
+        <h2 class="atl__h">Your Own Room.<br>Your Own People.</h2>
+        <p class="atl__sub">Create a private table, share the code, and play only with people you trust.</p>
+      </div>
+
+      <!-- 05 · CUSTOMIZE -->
+      <div class="atl__scene atl__scene--s" data-scene="customize" aria-hidden="true">
+        <p class="atl__eyebrow">05 &mdash; Customize</p>
+        <h2 class="atl__h">Make the<br>Table Yours</h2>
+        <p class="atl__sub">Table skins, card backs, avatars &mdash; collected with chips you won.</p>
+      </div>
+
+      <!-- 06 · HOW TO PLAY -->
+      <div class="atl__scene atl__scene--s" data-scene="howto" aria-hidden="true">
+        <p class="atl__eyebrow">06 &mdash; How to Play</p>
+        <h2 class="atl__h">Learn in<br>One Hand</h2>
+        <p class="atl__sub">A guided first game teaches the basics in two minutes.</p>
+      </div>
+
+      <!-- 07 · JOIN THE BETA (stays up through the landing) -->
+      <div class="atl__scene atl__scene--s" data-scene="beta" aria-hidden="true">
+        <p class="atl__eyebrow">&mdash;&nbsp; The beta is open to anyone &nbsp;&mdash;</p>
+        <h2 class="atl__h">Take Your Seat</h2>
+        <div class="atl__ctarow">
+          <a href="https://testflight.apple.com/join/AGkJgbtB" class="atl__cta atl__cta--gold">Open TestFlight</a>
+          <a href="#beta" class="atl__cta atl__cta--ghost" data-film-goto="#beta">Android &mdash; two steps</a>
         </div>
       </div>
-    </div>
 
-    <a class="scroll-cue" href="#game">
-      <svg viewBox="0 0 26 13" fill="none" stroke="currentColor" stroke-width="1.8"
-           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m1 1 12 11L25 1"/></svg>
-      Scroll
-    </a>
+      <!-- chrome: scroll cue, rail, skip -->
+      <div class="atl__cue" id="atlCue" aria-hidden="true"><span>Scroll to enter the Royal experience</span><i></i></div>
+      <nav class="atl__rail" id="atlRail" aria-label="Journey progress">
+        <button class="atl__dot" type="button" data-p="0"><span>Arrive</span><i></i></button>
+        <button class="atl__dot" type="button" data-p="0.078"><span>The Game</span><i></i></button>
+        <button class="atl__dot" type="button" data-p="0.167"><span>Rooms</span><i></i></button>
+        <button class="atl__dot" type="button" data-p="0.310"><span>Table</span><i></i></button>
+        <button class="atl__dot" type="button" data-p="0.453"><span>Club</span><i></i></button>
+        <button class="atl__dot" type="button" data-p="0.595"><span>Customize</span><i></i></button>
+        <button class="atl__dot" type="button" data-p="0.738"><span>How to Play</span><i></i></button>
+        <button class="atl__dot" type="button" data-p="0.90"><span>Join</span><i></i></button>
+      </nav>
+      <button class="atl__skip" type="button" id="atlSkip" data-atl-skip>Skip film
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 5l7 7-7 7M4 12h16"/></svg>
+      </button>
+    </div>
   </section>
 
-  <!-- ── What it is ───────────────────────────────────────────────── -->
-  <section class="band" id="game">
+  <!-- ── Beta ─────────────────────────────────────────────────────── -->
+  <section class="band band-alt" id="beta">
     <div class="shell">
       <div class="sec-head">
-        <span class="eyebrow">The game</span>
-        <h2>Every rule that makes the family table loud</h2>
-        <p>Most Tiến Lên apps quietly drop the rules that hurt. This one keeps them,
-        and pays them out to the chip.</p>
+        <span class="eyebrow">Take your seat</span>
+        <h2>Join the Beta</h2>
+        <p>The game is playable end to end and being tested on real phones before it
+        reaches the stores. No invite, no waiting list — just join.</p>
       </div>
 
-      <div class="grid grid-4">
-        <article class="card">
-          <span class="suit">♠</span>
-          <h3>Learn in one hand</h3>
-          <p>A guided first game teaches the basics in two minutes, and every special
-          rule explains itself the first time it fires — at the moment it costs you,
-          never as a wall of text.</p>
-        </article>
+      <div class="grid grid-2" style="max-width: 800px; margin: 0 auto;">
         <article class="card">
           <span class="suit">♥</span>
-          <h3>Climb the royal ladder</h3>
-          <p>Start in the Beginner room and rise through the Silver, Gold and VIP
-          halls. Higher stakes, richer rooms, bigger swings.</p>
-        </article>
-        <article class="card">
-          <span class="suit">♦</span>
-          <h3>Play money, real tension</h3>
-          <p>Chips are free and always recoverable — daily rewards, hourly bonuses
-          and the Lucky Spin keep you at the table. Nothing here cashes out.</p>
+          <h3>iPhone &amp; iPad — one step</h3>
+          <p>Open the TestFlight link on your iPhone, install Apple's TestFlight app if
+          you don't have it, and tap Install. That's it.</p>
+          <p style="margin-top:16px;">
+            <a class="btn btn-gold" href="https://testflight.apple.com/join/AGkJgbtB">Open TestFlight link</a>
+          </p>
         </article>
         <article class="card">
           <span class="suit">♣</span>
-          <h3>Royal Clubs</h3>
-          <p>Make a private room, hand out the code, and play only with the people
-          you actually want at your table.</p>
+          <h3>Android — two steps</h3>
+          <p>Google only lets a test like this run through a tester group, so there's
+          one extra hop:</p>
+          <p><strong>1.</strong> <a href="https://groups.google.com/g/tienlenroyale-testers">Join the
+          tester group</a> with the Google account your phone uses.<br>
+          <strong>2.</strong> Open the <a href="https://play.google.com/apps/testing/com.tienlenroyale.game">Play
+          opt-in link</a> and install.</p>
+          <p style="color: var(--muted); font-size: .88rem;">Step 2 only works once you're
+          in the group, and it's the same Google account both times.</p>
         </article>
       </div>
+
+      <p style="text-align:center; color: var(--muted); font-size: .85rem; margin-top: 26px;">
+        Stuck on either step? <a href="mailto:support@tienlenroyale.com">support@tienlenroyale.com</a>
+      </p>
     </div>
   </section>
 
   <!-- ── The four house rules ─────────────────────────────────────── -->
-  <section class="band band-alt" id="houserules">
+  <section class="band" id="houserules">
     <div class="shell">
       <div class="sec-head">
         <span class="eyebrow">The house rules</span>
@@ -232,92 +336,8 @@
     </div>
   </section>
 
-  <!-- ── Gallery ──────────────────────────────────────────────────── -->
-  <section class="band" id="gallery">
-    <div class="shell">
-      <div class="sec-head">
-        <span class="eyebrow">The halls</span>
-        <h2>Built like somewhere worth sitting down</h2>
-        <p>Screens from the current beta, shown in Vietnamese.</p>
-      </div>
-
-      <div class="shots">
-        <figure class="shot">
-          <img src="assets/shots/sc1_table_gold.webp" width="1280" height="720" loading="lazy"
-               alt="A four-player hand in progress at a Gold-room table">
-          <figcaption>A Gold-room hand, mid-trick — your fan, their counts, the pile.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="assets/shots/sc3_lobby_silver.webp" width="1280" height="720" loading="lazy"
-               alt="The Silver hall in the lobby carousel">
-          <figcaption>The Silver hall — one room at a time, swiped like a corridor.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="assets/shots/sc5_room_gold.webp" width="1280" height="720" loading="lazy"
-               alt="The Gold hall in the lobby carousel">
-          <figcaption>The Gold hall, and the stake that comes with it.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="assets/shots/sc4_vip_room.webp" width="1280" height="720" loading="lazy"
-               alt="The VIP hall, locked until level 30">
-          <figcaption>The VIP hall — locked until you have earned the seat.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="assets/shots/sc2_royal_club.webp" width="1280" height="720" loading="lazy"
-               alt="The Royal Club room, a private table for friends">
-          <figcaption>Royal Clubs — your own room, your own people.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="assets/shots/sc6_table_skins.webp" width="1280" height="720" loading="lazy"
-               alt="The table skin collection in the shop">
-          <figcaption>Table skins, card backs, avatars — collected with chips you won.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Beta ─────────────────────────────────────────────────────── -->
-  <section class="band band-alt" id="beta">
-    <div class="shell">
-      <div class="sec-head">
-        <span class="eyebrow">Right now</span>
-        <h2>The beta is open to anyone</h2>
-        <p>The game is playable end to end and being tested on real phones before it
-        reaches the stores. No invite, no waiting list — just join.</p>
-      </div>
-
-      <div class="grid grid-2" style="max-width: 800px; margin: 0 auto;">
-        <article class="card">
-          <span class="suit">♥</span>
-          <h3>iPhone &amp; iPad — one step</h3>
-          <p>Open the TestFlight link on your iPhone, install Apple's TestFlight app if
-          you don't have it, and tap Install. That's it.</p>
-          <p style="margin-top:16px;">
-            <a class="btn btn-gold" href="https://testflight.apple.com/join/AGkJgbtB">Open TestFlight link</a>
-          </p>
-        </article>
-        <article class="card">
-          <span class="suit">♣</span>
-          <h3>Android — two steps</h3>
-          <p>Google only lets a test like this run through a tester group, so there's
-          one extra hop:</p>
-          <p><strong>1.</strong> <a href="https://groups.google.com/g/tienlenroyale-testers">Join the
-          tester group</a> with the Google account your phone uses.<br>
-          <strong>2.</strong> Open the <a href="https://play.google.com/apps/testing/com.tienlenroyale.game">Play
-          opt-in link</a> and install.</p>
-          <p style="color: var(--muted); font-size: .88rem;">Step 2 only works once you're
-          in the group, and it's the same Google account both times.</p>
-        </article>
-      </div>
-
-      <p style="text-align:center; color: var(--muted); font-size: .85rem; margin-top: 26px;">
-        Stuck on either step? <a href="mailto:support@tienlenroyale.com">support@tienlenroyale.com</a>
-      </p>
-    </div>
-  </section>
-
   <!-- ── Q&A ──────────────────────────────────────────────────────── -->
-  <section class="band">
+  <section class="band band-alt" id="faq">
     <div class="shell">
       <div class="sec-head">
         <span class="eyebrow">Straight answers</span>
@@ -436,5 +456,10 @@
   })();
 </script>
 
+<script src="assets/js/vendor/gsap.min.js"></script>
+<script src="assets/js/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/js/vendor/lenis.min.js"></script>
+<script src="assets/js/vendor/split-type.min.js"></script>
+<script src="assets/js/tlr-cinema.js?v=3"></script>
 </body>
 </html>
