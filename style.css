@@ -34,6 +34,16 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* Keyboard focus — a visible gold ring on every interactive element.
+   :focus-visible fires for keyboard navigation only, so mouse/touch
+   visuals are completely unchanged. */
+a:focus-visible, button:focus-visible, summary:focus-visible,
+input:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 

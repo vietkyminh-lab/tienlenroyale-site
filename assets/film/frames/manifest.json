@@ -1,0 +1,16 @@
+{
+ "total": 280,
+ "width": 1440,
+ "height": 810,
+ "fps": 8,
+ "perClip": 40,
+ "scenes": [
+  {"name": "game",      "start": 0,   "end": 39},
+  {"name": "rooms",     "start": 40,  "end": 79},
+  {"name": "table",     "start": 80,  "end": 119},
+  {"name": "club",      "start": 120, "end": 159},
+  {"name": "customize", "start": 160, "end": 199},
+  {"name": "howto",     "start": 200, "end": 239},
+  {"name": "beta",      "start": 240, "end": 279}
+ ]
+}
