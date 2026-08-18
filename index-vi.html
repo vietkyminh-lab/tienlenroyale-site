@@ -42,6 +42,9 @@
   <!-- ── Hero ─────────────────────────────────────────────────────── -->
   <section class="hero">
     <div class="hero-art" aria-hidden="true"></div>
+    <div class="hero-suits" aria-hidden="true">
+      <span>♠</span><span>♥</span><span>♦</span><span>♣</span><span>♠</span><span>♦</span><span>♣</span>
+    </div>
     <div class="shell">
       <div class="hero-grid">
         <div class="hero-copy">
@@ -397,6 +400,37 @@
     var onScroll = function () { head.classList.toggle('scrolled', window.scrollY > 90); };
     onScroll();
     addEventListener('scroll', onScroll, { passive: true });
+  })();
+
+  // Scroll reveals. The .rv class is added HERE, never in the markup, so a
+  // no-JS visitor gets a fully visible static page. Once an element lands,
+  // the classes are stripped so hover transitions get their own timing back.
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var els = document.querySelectorAll(
+      '.band .sec-head, .band .card, .shot, .qa details, ' +
+      '.closer .ornament, .closer .quote, .closer .quote-en');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        io.unobserve(el);
+        el.classList.add('rv-in');
+        var delay = parseInt(el.style.getPropertyValue('--rvd'), 10) || 0;
+        setTimeout(function () {
+          el.classList.remove('rv', 'rv-in');
+          el.style.removeProperty('--rvd');
+        }, 900 + delay);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    els.forEach(function (el) {
+      var idx = el.parentElement
+        ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+      el.style.setProperty('--rvd', Math.min(idx, 5) * 80 + 'ms');
+      el.classList.add('rv');
+      io.observe(el);
+    });
   })();
 </script>
 

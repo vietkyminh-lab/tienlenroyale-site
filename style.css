@@ -513,3 +513,130 @@ em { color: var(--cream-hi); }
 
 .seq { color: var(--gold); font-family: var(--display); font-size: 1.05em; letter-spacing: 1px; }
 .red { color: #e0736f; }
+
+/* ══ DYNAMIC LAYER (2026-08-17) ══════════════════════════════════════
+   Motion on top of the shipped design. Rules of this layer:
+   - Nothing is hidden unless JS is running: the .rv class is added BY
+     the reveal script, so a no-JS visitor gets the full static page.
+   - The hero logo and H1 (LCP candidates) never get an opacity
+     entrance — transform-only, per the LCP law.
+   - The reveal script strips .rv/.rv-in after each element lands, so
+     hover transitions never inherit the reveal's easing or delay.
+   - Everything respects prefers-reduced-motion.
+   ─────────────────────────────────────────────────────────────────── */
+
+/* ── Scroll reveals (class added by JS) ─────────────────────────────── */
+
+.rv {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.16, .84, .44, 1);
+  transition-delay: var(--rvd, 0ms);
+  will-change: opacity, transform;
+}
+.rv.rv-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .rv { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── Hover polish (static-safe, no JS needed) ───────────────────────── */
+
+.card {
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(214, 168, 62, .5);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, .45), 0 6px 26px rgba(214, 168, 62, .1);
+}
+.card .suit { transition: transform .25s ease; }
+.card:hover .suit { transform: scale(1.18); }
+
+.shot img { transition: transform .6s cubic-bezier(.2, .7, .3, 1); }
+.shot:hover img { transform: scale(1.035); }
+
+.store-btn, .btn-gold { position: relative; overflow: hidden; }
+.store-btn::after, .btn-gold::after {
+  content: ""; position: absolute; top: -6px; bottom: -6px; left: -30%;
+  width: 34%; pointer-events: none;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, .16), transparent);
+  transform: skewX(-18deg) translateX(-40%);
+}
+.store-btn:hover::after, .btn-gold:hover::after {
+  transition: transform .6s ease;
+  transform: skewX(-18deg) translateX(560%);
+}
+.store-btn:hover { transform: translateY(-2px); }
+
+.qa summary::after { transition: color .25s ease; }
+.qa details[open] summary::after { color: var(--gold); }
+
+/* ── Hero motion (entrances are keyframes: they run without JS too) ──── */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* The table art breathes — a slow drift toward the seated players. */
+  .hero-art {
+    animation: heroDrift 28s ease-in-out infinite alternate;
+    transform-origin: 72% 32%;
+  }
+
+  /* Entrance cascade. Logo + H1 move but never fade (LCP). */
+  .hero-logo { animation: riseOnly .8s cubic-bezier(.16, .84, .44, 1) both; }
+  .hero-h1   { animation: riseOnly .8s .08s cubic-bezier(.16, .84, .44, 1) both; }
+  .hero-eyebrow { animation: riseFade .7s .05s ease both; }
+  .hero-orn     { animation: riseFade .7s .22s ease both; }
+  .hero-sub     { animation: riseFade .7s .3s ease both; }
+  .store-row    { animation: riseFade .7s .4s ease both; }
+  .store-note   { animation: riseFade .7s .5s ease both; }
+  .hero-copy .learn-link { animation: riseFade .7s .58s ease both; }
+  .feature-strip { animation: riseFade .8s .55s ease both; }
+
+  /* The gold line of the headline carries a slow shimmer sweep. */
+  .hero-h1 em {
+    background: linear-gradient(105deg,
+      var(--gold) 0%, var(--gold) 42%, #fff3cf 50%, var(--gold) 58%, var(--gold) 100%);
+    background-size: 240% 100%;
+    background-position: 120% 0;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    text-shadow: none;
+    filter: drop-shadow(0 3px 12px rgba(0, 0, 0, .7));
+    animation: goldSweep 7s ease-in-out 1.2s infinite;
+  }
+}
+
+@keyframes heroDrift { from { transform: scale(1); } to { transform: scale(1.055); } }
+@keyframes riseOnly { from { transform: translateY(16px); } to { transform: none; } }
+@keyframes riseFade { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes goldSweep {
+  0%, 52% { background-position: 120% 0; }
+  78%, 100% { background-position: -70% 0; }
+}
+
+/* ── Drifting suits in the hero backdrop ─────────────────────────────── */
+
+.hero-suits {
+  position: absolute; inset: 0; z-index: -1;
+  pointer-events: none; overflow: hidden;
+}
+.hero-suits span {
+  position: absolute; bottom: -60px;
+  color: var(--gold); opacity: 0;
+  animation: suitRise linear infinite;
+}
+.hero-suits span:nth-child(1) { left: 6%;  font-size: 30px; --o: .10; animation-duration: 26s; animation-delay: -4s; }
+.hero-suits span:nth-child(2) { left: 16%; font-size: 18px; --o: .07; animation-duration: 21s; animation-delay: -12s; }
+.hero-suits span:nth-child(3) { left: 28%; font-size: 40px; --o: .06; animation-duration: 33s; animation-delay: -20s; }
+.hero-suits span:nth-child(4) { left: 47%; font-size: 22px; --o: .08; animation-duration: 24s; animation-delay: -9s; }
+.hero-suits span:nth-child(5) { left: 62%; font-size: 16px; --o: .09; animation-duration: 19s; animation-delay: -15s; }
+.hero-suits span:nth-child(6) { left: 78%; font-size: 34px; --o: .06; animation-duration: 30s; animation-delay: -2s; }
+.hero-suits span:nth-child(7) { left: 90%; font-size: 20px; --o: .08; animation-duration: 22s; animation-delay: -17s; }
+@keyframes suitRise {
+  0%   { transform: translateY(0) rotate(-10deg); opacity: 0; }
+  10%  { opacity: var(--o, .08); }
+  82%  { opacity: var(--o, .08); }
+  100% { transform: translateY(calc(-100vh - 80px)) rotate(16deg); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-suits { display: none; }
+}
