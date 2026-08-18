@@ -29,7 +29,9 @@
      ⚠ Tune ONLY after a real device test — change these two strings, bump
      the ?v= on the script tag, nothing else. */
   const PIN_DESKTOP = '+=390%';
-  const PIN_MOBILE  = '+=350%';
+  /* 350% shipped first; the owner's iPhone verdict 2026-08-18: too fast, a
+     flick rushed ~3 scenes. 560% ≈ 528px/scene ≈ 1.9 scenes per native flick. */
+  const PIN_MOBILE  = '+=560%';
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const conn = navigator.connection || {};
